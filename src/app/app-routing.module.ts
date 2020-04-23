@@ -6,11 +6,12 @@ import { PrivateTaskComponent } from './components/private-task/private-task.com
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { TaskComponent } from './components/task/task.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/task', pathMatch: 'full'},
   {path: 'task', component: TaskComponent},
-  {path: 'task-private', component: PrivateTaskComponent },
+  {path: 'task-private', component: PrivateTaskComponent, canActivate: [AuthGuard] },
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent}
 ];
